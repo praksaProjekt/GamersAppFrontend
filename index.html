@@ -78,8 +78,10 @@
 
     <!--CONTROLLERS-->
     <script src="./components/navbar/navbar.ctrl.js"></script>
+    <script src="./pages/auth/login/login.js"></script>
 
     <!--SERVICES-->
+    <script src="./services/auth.service.js"></script>
 
     <!--DIRECTIVES-->
     <script src="./components/navbar/navbar.drct.js"></script>
@@ -96,7 +98,8 @@
 
   <body>
     <navbar></navbar>
-    <a ui-sref="login">Home</a>
+    <h1>hello</h1>
+    <a ui-sref="login">Login</a>
     <ui-view></ui-view>
     <footer></footer>
   </body>

@@ -15,7 +15,7 @@ angular.module("app.services", []).factory("auth", [
           });
       },
 
-      register: function (form1) {
+      register: function (form) {
         $http
           .post("URL_PLACEHOLDER", form)
           .success(function (data) {

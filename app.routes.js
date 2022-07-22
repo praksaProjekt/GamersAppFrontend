@@ -8,16 +8,13 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "./pages/home/home.html",
     })
-    .state("auth", {
-      url: "/",
-      templateUrl: "./pages/auth/home.html",
+    .state("login", {
+      url: "/login",
+      templateUrl: "./pages/auth/login/login.html",
+      controller: "LoginController",
     })
-    .state("auth.login", {
-      url: "/",
-      templateUrl: "./pages/home/home.html",
-    })
-    .state("auth.register", {
-      url: "/",
+    .state("register", {
+      url: "/register",
       templateUrl: "./pages/home/home.html",
     });
 

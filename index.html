@@ -93,13 +93,15 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
     <navbar></navbar>
-    <h1>hello</h1>
-    <a ui-sref="login">Login</a>
-    <ui-view></ui-view>
+
+    <main><ui-view></ui-view></main>
+
     <footer></footer>
   </body>
 </html>

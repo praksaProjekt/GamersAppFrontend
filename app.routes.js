@@ -15,7 +15,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     })
     .state("register", {
       url: "/register",
-      templateUrl: "./pages/home/home.html",
+      templateUrl: "./pages/auth/register/register.html",
     });
 
   $urlRouterProvider.otherwise("/");

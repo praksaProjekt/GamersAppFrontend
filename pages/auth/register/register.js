@@ -4,8 +4,8 @@ angular.module("gamerApp").controller("LoginController", [
   "$http",
   "auth",
   function ($scope, auth) {
-    $scope.register = function (loginUser) {
-      auth.register(loginUser);
+    $scope.register = function (registerUser) {
+      auth.register(registerUser);
     };
   },
 ]);

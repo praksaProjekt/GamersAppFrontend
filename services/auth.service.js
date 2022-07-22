@@ -26,6 +26,30 @@ angular.module("app.services", []).factory("auth", [
             console.error(error);
           });
       },
+
+      logout: function () {
+        $http
+          .delete("URL_PLACEHOLDER")
+          .success(function (data) {
+            console.log(data);
+            console.log("hello");
+          })
+          .error(function (error) {
+            console.error(error);
+          });
+      },
+
+      isLoggedIn: function () {
+        $http
+          .get("URL_PLACEHOLDER")
+          .success(function (data) {
+            console.log(data);
+            console.log("hello");
+          })
+          .error(function (error) {
+            console.error(error);
+          });
+      },
     };
   },
 ]);

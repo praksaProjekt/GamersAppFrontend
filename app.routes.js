@@ -8,17 +8,14 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "./pages/home/home.html",
     })
-    .state("auth", {
-      url: "/",
-      templateUrl: "./pages/auth/home.html",
+    .state("login", {
+      url: "/login",
+      templateUrl: "./pages/auth/login/login.html",
+      controller: "LoginController",
     })
-    .state("auth.login", {
-      url: "/",
-      templateUrl: "./pages/home/home.html",
-    })
-    .state("auth.register", {
-      url: "/",
-      templateUrl: "./pages/home/home.html",
+    .state("register", {
+      url: "/register",
+      templateUrl: "./pages/auth/register/register.html",
     });
 
   $urlRouterProvider.otherwise("/");

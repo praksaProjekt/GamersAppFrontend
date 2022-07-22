@@ -1,1 +1,1 @@
-angular.module("gamerApp", []);
+angular.module("gamerApp", ["app.routes", "app.services", "app.error"]);

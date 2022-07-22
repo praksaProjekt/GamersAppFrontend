@@ -1,12 +1,30 @@
 angular.module("app.services", []).factory("auth", [
-  function () {
+  "$http",
+  function ($http) {
     return {
-      login: function () {
-        console.log("login");
+      login: function (form) {
+        console.log(form);
+        $http
+          .post("URL_PLACEHOLDER", form)
+          .success(function (data) {
+            console.log(data);
+            console.log("hello");
+          })
+          .error(function (error) {
+            console.error(error);
+          });
       },
 
-      register: function () {
-        console.log("register");
+      register: function (form) {
+        $http
+          .post("URL_PLACEHOLDER", form)
+          .success(function (data) {
+            console.log(data);
+            console.log("hello");
+          })
+          .error(function (error) {
+            console.error(error);
+          });
       },
     };
   },

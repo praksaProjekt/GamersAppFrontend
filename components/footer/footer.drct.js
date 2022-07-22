@@ -1,9 +1,9 @@
 angular.module("gamerApp").directive("footer", footer);
 
 function footer() {
-    var ddo = {
-        templateUrl: "./components/footer/footer.html",
-    };
+  var ddo = {
+    templateUrl: "./components/footer/footer.html",
+  };
 
-    return ddo;
+  return ddo;
 }

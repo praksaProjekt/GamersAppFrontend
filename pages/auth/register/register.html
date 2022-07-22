@@ -1,4 +1,7 @@
-<form ng-submit="register(registerUser)">
+<form
+  ng-submit="register(registerUser)"
+  class="d-flex gap-2 flex-column align-items-center"
+>
   <div class="form-group">
     <label for="email">Email address</label>
     <input
@@ -39,7 +42,6 @@
       placeholder="Confirm password"
     />
   </div>
-
   <button type="submit" class="btn btn-outline-primary">Submit</button>
   <a ui-sref="login">Already have an account? Login!</a>
 </form>

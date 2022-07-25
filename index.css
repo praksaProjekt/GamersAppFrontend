@@ -1,17 +1,18 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
+.button {
+  border: none;
+  border-radius: 20%;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: #ffb606;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  padding: 8px 20px 8px;
 }
-
-.nav-btn {
-  color: white;
-  background-color: #ffb606;
-}
-
-.nav-btn:hover {
-  color: gray;
-  background-color: blue;
+.glow-button:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px #b58005fd;
 }
 
 body {

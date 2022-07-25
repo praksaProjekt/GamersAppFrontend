@@ -1,6 +1,6 @@
 img.epic {
-  height: 20px !important;
-  width: 20px !important;
+  max-height: 18px;
+  max-width: 18px;
 }
 
 .editImg {

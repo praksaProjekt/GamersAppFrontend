@@ -1,4 +1,7 @@
-<section style="background-color: #eee">
+<section
+  ng-controller="ProfileController as profile"
+  style="background-color: #eee"
+>
   <div class="container py-5">
     <div class="row">
       <div class="col-lg-4">
@@ -15,11 +18,24 @@
             <h5 class="my-3">John Smith</h5>
             <p class="text-muted mb-1">Epic Gamer</p>
             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-            <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Follow</button>
-              <button type="button" class="btn btn-outline-primary ms-1">
-                Message
+            <div
+              ng-if="profile.edit==false"
+              class="d-flex justify-content-center mb-2"
+            >
+              <button
+                ng-click="profile.switchEdit();"
+                type=""
+                class="button glow-button"
+              >
+                Edit Profile
               </button>
+            </div>
+            <div
+              ng-if="profile.edit==true"
+              class="d-flex justify-content-center mb-2"
+            >
+              <button type="" class="button glow-button mr-2">Cancel</button>
+              <button type="" class="button glow-button">Save Changes</button>
             </div>
           </div>
         </div>
@@ -53,20 +69,18 @@
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
-                <i class="fab" style="color: #55acee"></i>
-                <p class="mb-0">@mdbootstrap</p>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center p-3"
-              >
-                <img class="epic" src="" alt="" />
-                <p class="mb-0">mdbootstrap</p>
+                <img
+                  class="epic"
+                  src="../../assets/images/epic_games_logo_icon_145306.svg"
+                  alt="epic"
+                />
+                <p class="mb-0">EpicGames</p>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fa-brands fa-steam"></i>
-                <p class="mb-0">mdbootstrap</p>
+                <p class="mb-0">Steam</p>
               </li>
             </ul>
           </div>

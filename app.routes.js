@@ -18,6 +18,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state("register", {
       url: "/register",
       templateUrl: "./views/register/register.html",
+      controller: "RegisterController",
     })
     .state("profile", {
       url: "/profile",

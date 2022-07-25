@@ -7,20 +7,30 @@
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
               alt="avatar"
-              ng-class="profile.edit ? 'editImg' : ''"
+              ng-class="isEditing ? 'editImg' : ''"
               class="rounded-circle img-fluid"
               style="width: 150px"
+              ng-click="isEditing = !isEditing"
             />
-            <h5 class="my-3">{{profile.fullName}}</h5>
-            <p class="text-muted mb-1">Epic Gamer</p>
-            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+            <input class="form-control" type="file" />
+            <input class="form-control" type="text" />
+            <input class="form-control" type="text" />
+            <input class="form-control" type="text" />
+
             <div class="d-flex justify-content-center mb-2">
               <button
-                ng-click="profile.switchEdit();"
                 type=""
+                ng-click="profile.switchEdit();"
+                class="button glow-button mr-2"
+              >
+                Cancel
+              </button>
+              <button
+                type=""
+                ng-click="profile.switchEdit();"
                 class="button glow-button"
               >
-                Edit Profile
+                Save Changes
               </button>
             </div>
           </div>
@@ -32,19 +42,19 @@
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fab fa-twitter fa-lg" style="color: #55acee"></i>
-                <p class="mb-0">@mdbootstrap</p>
+                <input class="form-control" type="text" />
               </li>
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fab fa-instagram fa-lg" style="color: #ac2bac"></i>
-                <p class="mb-0">mdbootstrap</p>
+                <<input class="form-control" type="text" />
               </li>
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fab fa-facebook-f fa-lg" style="color: #3b5998"></i>
-                <p class="mb-0">mdbootstrap</p>
+                <input class="form-control" type="text" />
               </li>
             </ul>
           </div>
@@ -60,13 +70,13 @@
                   src="../../assets/images/epic_games_logo_icon_145306.svg"
                   alt="epic"
                 />
-                <p class="mb-0">EpicGames</p>
+                <input class="form-control" type="text" />
               </li>
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fa-brands fa-steam"></i>
-                <p class="mb-0">Steam</p>
+                <input class="form-control" type="text" />
               </li>
             </ul>
           </div>
@@ -80,7 +90,7 @@
                 <p class="mb-0">Full Name</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">Johnatan Smith</p>
+                <input class="form-control" type="text" />
               </div>
             </div>
             <hr />
@@ -89,7 +99,7 @@
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">example@example.com</p>
+                <input class="form-control" type="text" />
               </div>
             </div>
             <hr />
@@ -98,7 +108,7 @@
                 <p class="mb-0">Phone</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">(097) 234-5678</p>
+                <input class="form-control" type="text" />
               </div>
             </div>
             <hr />
@@ -107,7 +117,7 @@
                 <p class="mb-0">Mobile</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">(098) 765-4321</p>
+                <input class="form-control" type="text" />
               </div>
             </div>
             <hr />
@@ -116,7 +126,7 @@
                 <p class="mb-0">Address</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">Karlovac</p>
+                <input class="form-control" type="text" />
               </div>
             </div>
           </div>

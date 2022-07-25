@@ -2,3 +2,21 @@ img.epic {
   max-height: 18px;
   max-width: 18px;
 }
+
+.editImg {
+  animation: img-spin linear 1s forwards;
+}
+
+@keyframes img-spin {
+  0% {
+    transform: scale(1) rotate(180deg);
+  }
+  50% {
+    transform: scale(0) rotate(-180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    content: url(https://mosmandentistry.com.au/wp-content/uploads/2016/10/orionthemes-placeholder-image-2.png);
+    aspect-ratio: 1;
+  }
+}

@@ -1,11 +1,13 @@
-angular.module("gamerApp").controller("LoginController", [
+angular.module("gamerApp").controller("RegisterController", [
   "$scope",
-  "$timeout",
-  "$http",
   "auth",
   function ($scope, auth) {
     $scope.register = function (registerUser) {
-      auth.register(registerUser);
+      if (registerUser.password === registerUser.confirmpassword) {
+        auth.register(registerUser);
+      } else {
+        $scope.unmatchedPasswords = true;
+      }
     };
   },
 ]);

@@ -1,0 +1,67 @@
+<form
+  ng-submit="register(registerUser)"
+  name="registerForm"
+  class="mx-auto"
+  style="width: min(400px, 90%)"
+>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input
+      required
+      name="email"
+      ng-class="!registerForm.email.$valid && registerForm.email.$touched ? 'is-invalid' : ''"
+      ng-model="registerUser.email"
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="Enter email"
+    />
+    <p class="invalid-feedback">Email required!</p>
+  </div>
+  <div class="form-group">
+    <label for="nickname">Nickname</label>
+    <input
+      required
+      name="nickname"
+      ng-class="!registerForm.nickname.$valid && registerForm.nickname.$touched ? 'is-invalid' : ''"
+      ng-model="registerUser.nickname"
+      type="password"
+      class="form-control"
+      id="nickname"
+      placeholder="Nickname"
+    />
+    <p class="invalid-feedback">Nickname required!</p>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      required
+      name="password"
+      ng-class="!registerForm.password.$valid && registerForm.password.$touched ? 'is-invalid' : ''"
+      ng-model="registerUser.password"
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder="Password"
+    />
+    <p class="invalid-feedback">Password required!</p>
+  </div>
+  <div class="form-group">
+    <label for="confirmpassword">Confirm Password</label>
+    <input
+      required
+      name="confirmpassword"
+      ng-class="!registerForm.confirmpassword.$valid && registerForm.confirmpassword.$touched ? 'is-invalid' : ''"
+      ng-model="registerUser.confirmpassword"
+      type="password"
+      class="form-control"
+      id="confirmpassword"
+      placeholder="Confirm password"
+    />
+    <p class="invalid-feedback">Password required!</p>
+  </div>
+  <div class="d-flex align-items-center gap-5">
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+    <a ui-sref="login">Already have an account? Login!</a>
+  </div>
+</form>

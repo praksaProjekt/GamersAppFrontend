@@ -1,11 +1,19 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 .nav-btn {
   color: white;
   background-color: #ffb606;
 }
+
 .nav-btn:hover {
   color: gray;
   background-color: blue;
 }
+
 body {
   display: flex;
   flex-direction: column;

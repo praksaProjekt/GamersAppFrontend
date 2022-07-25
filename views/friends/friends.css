@@ -1,0 +1,121 @@
+.main {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 300px;
+    margin: 40px auto 0 auto;
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.20);
+}
+
+.main h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: -10px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form {
+    width: 83%;
+    padding: 10px;
+}
+
+input {
+    box-sizing: border-box;
+    height: 33px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+input[type='text'] {
+    color: white;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    color: white !important;
+}
+
+
+input[type="text"]:-ms-input-placeholder {
+    color: white !important;
+}
+
+.form-btn {
+    width: 11%;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding-bottom: 4px;
+}
+
+.table-wrapper {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table {
+    font-size: 18px;
+    font-weight: light;
+    width: 100%;
+    border-spacing: 0;
+}
+
+
+table tr {
+    background-color: #367EF5;
+    padding: 5px;
+    height: 33px;
+}
+
+table tr:nth-child(even) {
+    background-color: #4287F8
+}
+
+table td {
+    padding: 5px 10px 5px 10px;
+}
+
+.new-friend {
+    background-color: #115185;
+}
+
+.search {
+    background-color: #ffb606;
+    width: 100%;
+}
+
+#grad {
+    background: #05c894;
+    background: linear-gradient(-200deg, #10b9e8, #07a374, #5A1297);
+    /* Standard syntax */
+}
+
+#trash-btn {
+    height: 33px;
+    width: 21px;
+    background-color: transparent;
+    background-image: url("http://cathodg.es/wp-content/uploads/2017/09/xvbIigE.png");
+    background-size: 21px;
+    background-repeat: no-repeat;
+    border: none;
+}

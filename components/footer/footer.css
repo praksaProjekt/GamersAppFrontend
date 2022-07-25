@@ -3,10 +3,6 @@ section {
   min-height: 100vh;
 }
 
-.footer-section {
-  margin-top: 20px;
-}
-
 a,
 a:hover,
 a:focus,
@@ -48,6 +44,7 @@ img {
   position: relative;
   overflow: hidden;
   z-index: 9;
+  margin-top: 20px;
 }
 
 .footer-section:before {

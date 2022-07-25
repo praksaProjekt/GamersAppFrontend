@@ -1,4 +1,4 @@
-angular.module("app.routes", ["ui.router"]).config(RoutesConfig);
+angular.module("routes", ["ui.router"]).config(RoutesConfig);
 
 RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
 

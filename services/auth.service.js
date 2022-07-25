@@ -4,11 +4,16 @@ angular.module("app.services", []).factory("auth", [
   function ($http, $state) {
     return {
       login: function (form) {
-        $http
-          .post("https://localhost:7190/api/User/login", form)
+        $http({
+          method: "POST",
+          url: "https://localhost:7190/api/auth/login",
+          data: form,
+          headers: { "Content-Type": "application/json" },
+        })
           .then((data) => {
             console.log(data);
-            console.log("hello");
+            localStorage.setItem("token", data.data.token);
+            $state.go("profile");
           })
           .error((error) => {
             console.error(error);

@@ -3,7 +3,6 @@ angular.module("gamerApp").controller("RegisterController", [
   "auth",
   function ($scope, auth) {
     $scope.register = function (registerUser) {
-      console.log(registerUser);
       if (registerUser.password === registerUser.confirmpassword) {
         auth.register(registerUser);
       } else {

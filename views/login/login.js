@@ -3,7 +3,6 @@ angular.module("gamerApp").controller("LoginController", [
   "auth",
   function ($scope, auth) {
     $scope.login = function (loginUser) {
-      console.log(auth);
       auth.login(loginUser);
     };
   },

@@ -14,7 +14,8 @@
             <tr ng-repeat="friend in friends | filter:searchText" class="table-row" valign="middle" height="33px">
                 <td>{{$index+1}}</td>
                 <td>{{friend}}</td>
-                <td><button class="btn btn-danger" id="trash-btn" ng-click="remove(friend)"></button>
+                <td><button class="btn btn-danger" id="trash-btn" ng-click="remove(friend)"><i
+                            class="fa-solid fa-trash-can"></i></button>
                 </td>
             </tr>
         </table>

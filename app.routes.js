@@ -31,7 +31,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state("friends", {
       url: "/friends",
       templateUrl: "./views/friends/friends.html",
-      controller: "friendsController",
+      controller: "FriendsController",
     });
 
   $urlRouterProvider.otherwise("/");

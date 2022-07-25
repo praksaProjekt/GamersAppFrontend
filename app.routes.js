@@ -6,7 +6,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state("home", {
       url: "/",
-      templateUrl: "./pages/home/home.html",
+      templateUrl: "./views/profile/profile.html",
     })
     .state("login", {
       url: "/login",

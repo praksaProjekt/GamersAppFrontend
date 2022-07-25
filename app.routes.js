@@ -7,6 +7,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state("home", {
       url: "/",
       templateUrl: "./views/profile/profile.html",
+      controller: "ProfileController",
     })
     .state("login", {
       url: "/login",
@@ -16,6 +17,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state("register", {
       url: "/register",
       templateUrl: "./pages/auth/register/register.html",
+    })
+    .state("profile", {
+      url: "/profile",
+      templateUrl: "./views/profile/profile.html",
     });
 
   $urlRouterProvider.otherwise("/");

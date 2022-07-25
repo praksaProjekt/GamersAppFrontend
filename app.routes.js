@@ -6,16 +6,26 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state("home", {
       url: "/",
-      templateUrl: "./pages/home/home.html",
+
+      templateUrl: "./views/profile/profile.html",
+
     })
     .state("login", {
       url: "/login",
-      templateUrl: "./pages/auth/login/login.html",
+      templateUrl: "./views/login/login.html",
       controller: "LoginController",
     })
     .state("register", {
       url: "/register",
-      templateUrl: "./pages/auth/register/register.html",
+      templateUrl: "./views/register/register.html",
+    })
+    .state("profile", {
+      url: "/profile",
+      templateUrl: "./views/profile/profile.html",
+    })
+    .state("friends", {
+      url: "/friends",
+      templateUrl: "./views/friends/friends.html",
     });
 
   $urlRouterProvider.otherwise("/");

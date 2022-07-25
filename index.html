@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html ng-app="gamerApp" lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -60,23 +59,18 @@
     <!---->
 
     <!--MODULES -->
+    <script src="./app.js"></script>
     <script src="./app.error.js"></script>
     <script src="./app.services.js"></script>
     <script src="./app.routes.js"></script>
-    <script src="./app.js"></script>
     <!---->
 
     <!--CONTROLLERS-->
-    <script src="./components/navbar/navbar.ctrl.js"></script>
-    <script src="./views/login/login.js"></script>
-    <!---->
-    <!--CONTROLLERS-->
-    <script src="./components/navbar/navbar.ctrl.js"></script>
+    <script src="./views/friends/friends.ctrl.js"></script>
     <script src="./pages/auth/login/login.js"></script>
     <script src="./views/profile/profile.ctrl.js"></script>
     <script src="./views/login/login.js"></script>
     <script src="./views/register/register.js"></script>
-
     <!---->
 
     <!--SERVICES-->
@@ -99,11 +93,12 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./views/profile/profile.css" />
     <link rel="stylesheet" href="./components/footer/footer.css" />
+    <link rel="stylesheet" href="./views/friends/friends.css" />
     <link rel="stylesheet" href="./views/games/games.css" />
     <!---->
   </head>
-
   <body>
     <navbar></navbar>
 
@@ -114,4 +109,3 @@
     <footer></footer>
   </body>
 </html>
-

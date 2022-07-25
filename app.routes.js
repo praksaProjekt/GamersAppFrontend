@@ -1,4 +1,4 @@
-angular.module("app.routes", ["ui.router"]).config(RoutesConfig);
+angular.module("routes", ["ui.router"]).config(RoutesConfig);
 
 RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
 
@@ -31,6 +31,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state("friends", {
       url: "/friends",
       templateUrl: "./views/friends/friends.html",
+      controller: "friendsController",
     });
 
   $urlRouterProvider.otherwise("/");

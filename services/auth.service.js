@@ -1,28 +1,36 @@
 angular.module("app.services", []).factory("auth", [
   "$http",
-  function ($http) {
+  "$state",
+  function ($http, $state) {
     return {
       login: function (form) {
-        console.log(form);
-        $http
-          .post("URL_PLACEHOLDER", form)
-          .success(function (data) {
+        $http({
+          method: "POST",
+          url: "https://localhost:7190/api/auth/login",
+          data: form,
+          headers: { "Content-Type": "application/json" },
+        })
+          .then((data) => {
             console.log(data);
-            console.log("hello");
+            localStorage.setItem("token", data.data.token);
+            $state.go("profile");
           })
-          .error(function (error) {
+          .error((error) => {
             console.error(error);
           });
       },
 
       register: function (form) {
-        $http
-          .post("URL_PLACEHOLDER", form)
-          .success(function (data) {
-            console.log(data);
-            console.log("hello");
+        $http({
+          method: "POST",
+          url: "https://localhost:7190/api/User/register",
+          data: form,
+          headers: { "Content-Type": "application/json" },
+        })
+          .then(() => {
+            $state.go("login");
           })
-          .error(function (error) {
+          .error((error) => {
             console.error(error);
           });
       },
@@ -30,11 +38,11 @@ angular.module("app.services", []).factory("auth", [
       logout: function () {
         $http
           .delete("URL_PLACEHOLDER")
-          .success(function (data) {
+          .then((data) => {
             console.log(data);
             console.log("hello");
           })
-          .error(function (error) {
+          .error((error) => {
             console.error(error);
           });
       },
@@ -42,11 +50,11 @@ angular.module("app.services", []).factory("auth", [
       isLoggedIn: function () {
         $http
           .get("URL_PLACEHOLDER")
-          .success(function (data) {
+          .then((data) => {
             console.log(data);
             console.log("hello");
           })
-          .error(function (error) {
+          .error((error) => {
             console.error(error);
           });
       },

@@ -1,4 +1,7 @@
-<form ng-submit="login(loginUser)">
+<form
+  ng-submit="login(loginUser)"
+  class="d-flex gap-2 flex-column align-items-center"
+>
   <div class="form-group">
     <label for="email">Email address</label>
     <input
@@ -26,7 +29,7 @@
       class="form-check-input"
       id="rememberMe"
     />
-    <label class="form-check-label" for="rememberMe">Check me out</label>
+    <label class="form-check-label" for="rememberMe">Remember Me</label>
   </div>
   <button type="submit" class="btn btn-outline-primary">Submit</button>
   <a ui-sref="register">Dont have an account? Register!</a>

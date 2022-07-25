@@ -1,19 +1,7 @@
-<nav
-  ng-controller="NavbarController as navbar"
-  class="navbar navbar-expand-lg navbar-dark bg-dark mb-5"
->
-  <a class="navbar-brand" ui-sref="home"
-    ><i class="fa-solid fa-gamepad fa-2xl"></i
-  ></a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
+<nav ng-controller="NavbarController as navbar" class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" ui-sref="home"><i class="fa-solid fa-gamepad fa-2xl"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -35,7 +23,7 @@
         <a class="nav-link" ui-sref="profile">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" ui-sref="home">Games</a>
+        <a class="nav-link" ui-sref="games">Games</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" ui-sref="home">Action</a>
           <a class="dropdown-item" ui-sref="home">Another action</a>
@@ -46,13 +34,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <label class="text-light mr-3" for="search">Search Users:</label>
-      <input
-        id="search"
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
+      <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
       <button class="btn nav-btn my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

@@ -23,6 +23,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       url: "/profile",
       templateUrl: "./views/profile/profile.html",
     })
+    .state("games", {
+      url: "/games",
+      templateUrl: "./views/games/games.html",
+    })
     .state("friends", {
       url: "/friends",
       templateUrl: "./views/friends/friends.html",

@@ -3,6 +3,7 @@ angular.module("gamerApp").controller("FriendsController", [
   function ($scope) {
     var friends = ["John", "Paul", "Lucie", "Martin", "Frank", "Charlie"];
     $scope.friends = friends;
+
     $scope.remove = function (friend) {
       var index = $scope.friends.indexOf(friend);
       $scope.friends.splice(index, 1);
@@ -14,6 +15,7 @@ angular.module("gamerApp").controller("FriendsController", [
       $scope.newFriend = "";
       $scope.numberOf = $scope.numberOf + 1;
     };
+
     $scope.numberOf = $scope.friends.length;
   },
 ]);

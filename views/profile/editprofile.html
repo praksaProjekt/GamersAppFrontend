@@ -11,10 +11,28 @@
               style="width: 150px"
               ng-click="isEditing = !isEditing"
             />
-            <input class="form-control" type="file" />
-            <input class="form-control" type="text" />
-            <input class="form-control" type="text" />
-            <input class="form-control" type="text" />
+            <input
+              class="mt-2 mb-2 form-control file-input profile-input mx-auto"
+              type="file"
+              id="input"
+              accept=".jpg"
+            />
+            <h5 class="my-3">{{profile.fullName}}</h5>
+            <div class="row justify-content-center">
+              <div class="col-auto">
+                <label class="col-form-label" for="title">title:</label>
+              </div>
+              <div class="col-auto">
+                <input
+                  id="title"
+                  class="form-control profile-input"
+                  placeholder="{{profile.title}}"
+                  type="text"
+                  ng-model="profile.model.title"
+                />
+              </div>
+            </div>
+            <p class="text-muted mb-2">{{profile.adress}}</p>
 
             <div class="d-flex justify-content-center mb-2">
               <button
@@ -26,7 +44,7 @@
               </button>
               <button
                 type=""
-                ng-click="profile.switchEdit();"
+                ng-click="profile.showModel();"
                 class="button glow-button"
               >
                 Save Changes
@@ -41,19 +59,31 @@
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fab fa-twitter fa-lg" style="color: #55acee"></i>
-                <input class="form-control" type="text" />
+                <input
+                  class="form-control profile-input"
+                  type="text"
+                  ng-model="profile.model.twitter"
+                />
               </li>
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fab fa-instagram fa-lg" style="color: #ac2bac"></i>
-                <<input class="form-control" type="text" />
+                <input
+                  class="form-control profile-input"
+                  type="text"
+                  ng-model="profile.mode.instagram"
+                />
               </li>
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fab fa-facebook-f fa-lg" style="color: #3b5998"></i>
-                <input class="form-control" type="text" />
+                <input
+                  class="form-control profile-input"
+                  type="text"
+                  ng-model="profile.model.facebook"
+                />
               </li>
             </ul>
           </div>
@@ -69,13 +99,13 @@
                   src="../../assets/images/epic_games_logo_icon_145306.svg"
                   alt="epic"
                 />
-                <input class="form-control" type="text" />
+                <input class="form-control profile-input" type="text" />
               </li>
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
                 <i class="fa-brands fa-steam"></i>
-                <input class="form-control" type="text" />
+                <input class="form-control profile-input" type="text" />
               </li>
             </ul>
           </div>
@@ -89,7 +119,11 @@
                 <p class="mb-0">Full Name</p>
               </div>
               <div class="col-sm-9">
-                <input class="form-control" type="text" />
+                <input
+                  class="form-control profile-input"
+                  placeholder="{{profile.fullName}}"
+                  type="text"
+                />
               </div>
             </div>
             <hr />
@@ -98,25 +132,25 @@
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-9">
-                <input class="form-control" type="text" />
+                <input
+                  class="form-control profile-input"
+                  type="text"
+                  placeholder="{{profile.email}}"
+                />
               </div>
             </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Phone</p>
-              </div>
-              <div class="col-sm-9">
-                <input class="form-control" type="text" />
-              </div>
-            </div>
+
             <hr />
             <div class="row">
               <div class="col-sm-3">
                 <p class="mb-0">Mobile</p>
               </div>
               <div class="col-sm-9">
-                <input class="form-control" type="text" />
+                <input
+                  class="form-control profile-input"
+                  placeholder="{{profile.mobile}}"
+                  type="text"
+                />
               </div>
             </div>
             <hr />
@@ -125,7 +159,11 @@
                 <p class="mb-0">Address</p>
               </div>
               <div class="col-sm-9">
-                <input class="form-control" type="text" />
+                <input
+                  class="form-control profile-input"
+                  placeholder="{{profile.adress}}"
+                  type="text"
+                />
               </div>
             </div>
           </div>

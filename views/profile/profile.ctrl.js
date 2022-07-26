@@ -1,5 +1,6 @@
 angular.module("gamerApp").controller("ProfileController", [
-  function (fileService) {
+  "$scope",
+  function ($scope) {
     var profile = this;
 
     profile.fullName = "Marko Marković";
@@ -34,16 +35,16 @@ angular.module("gamerApp").controller("ProfileController", [
       }
     };
 
-    profile.showModel = function () {
+    $scope.showModel = function () {
       var image = document.getElementById("input").files[0];
       var image2 = document.getElementById("img");
       var reader = new FileReader();
-
       reader.addEventListener(
         "load",
         function () {
-          console.log(image2);
           image2.src = this.result;
+          profile.model.file = this.result;
+          console.log(profile.model.file);
           image2.classList.remove("editImg");
         },
         false

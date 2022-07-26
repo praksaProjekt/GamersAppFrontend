@@ -17,7 +17,7 @@
               id="input"
               ng-model="profile.model.file"
               accept=".jpg"
-              ng-change="profile.showModel()"
+              onchange="angular.element(this).scope().showModel()"
             />
             <h5 class="my-3">{{profile.fullName}}</h5>
             <div class="row justify-content-center">

@@ -36,6 +36,8 @@ angular.module("app.services", []).factory("auth", [
       },
 
       logout: function () {
+        localStorage.removeItem("token");
+
         $http
           .delete("URL_PLACEHOLDER")
           .then((data) => {

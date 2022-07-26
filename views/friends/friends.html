@@ -7,9 +7,10 @@
       placeholder="Type new friend's name here"
       ng-model="newFriend"
     />
-    <button class="form-btn new-friend" ng-click="addNewFriend()">+</button>
+    <button class="form-btn new-friend-button" ng-click="addNewFriend()">
+      +
+    </button>
   </div>
-
   <div class="form-container">
     <input
       class="search"
@@ -18,17 +19,16 @@
       ng-model="searchText"
     />
   </div>
-
   <div class="table-wrapper">
     <table class="table">
       <tr
-        ng-repeat="friend in friends | filter:searchText"
+        ng-repeat="friend in friends| filter:searchText track by $index"
         class="table-row"
         valign="middle"
         height="33px"
       >
-        <td>{{$index+1}}</td>
-        <td>{{friend}}</td>
+        <td class="friends-list">{{$index+1}}</td>
+        <td class="friends-list">{{friend}}</td>
         <td>
           <button
             class="btn btn-danger"

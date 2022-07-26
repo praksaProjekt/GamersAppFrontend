@@ -14,26 +14,9 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       templateUrl: "./views/register/register.html",
       controller: "RegisterController",
     })
-    .state("home", {
-      url: "/",
-      templateUrl: "./views/profile/profile.html",
-      controller: "ProfileController",
-      resolve: {
-        auththenticate: [
-          "$q",
-          function ($q) {
-            if (AuthGuard()) {
-              return $q.resolve("AUTH_SUCCESS");
-            } else {
-              return $q.reject("AUTH_REQUIRED");
-            }
-          },
-        ],
-      },
-    })
     .state("profile", {
       url: "/profile",
-      templateUrl: "./views/profile/profile.html",
+      templateUrl: "./views/profile/showProfile.html",
       controller: "ProfileController",
       resolve: {
         auththenticate: [
@@ -67,6 +50,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state("friends", {
       url: "/friends",
       templateUrl: "./views/friends/friends.html",
+      controller: "FriendsController",
       resolve: {
         auththenticate: [
           "$q",
@@ -85,5 +69,5 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 }
 
 function AuthGuard() {
-  return localStorage.getItem("token");
+  return true;
 }

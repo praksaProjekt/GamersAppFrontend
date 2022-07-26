@@ -16,7 +16,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     })
     .state("home", {
       url: "/",
-      templateUrl: "./views/profile/profile.html",
+      templateUrl: "./views/profile/showProfile.html",
       controller: "ProfileController",
       resolve: {
         auththenticate: [
@@ -33,7 +33,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     })
     .state("profile", {
       url: "/profile",
-      templateUrl: "./views/profile/profile.html",
+      templateUrl: "./views/profile/showProfile.html",
       controller: "ProfileController",
       resolve: {
         auththenticate: [
@@ -67,6 +67,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state("friends", {
       url: "/friends",
       templateUrl: "./views/friends/friends.html",
+      controller: "FriendsController",
       resolve: {
         auththenticate: [
           "$q",
@@ -85,5 +86,5 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 }
 
 function AuthGuard() {
-  return localStorage.getItem("token");
+  return true;
 }

@@ -1,26 +1,26 @@
-div class="main" id="grad">
-<h1>You have {{numberOf}} friends</h1>
-<div class="form-container">
-  <input class="form new-friend" type="text" placeholder="Type new friend's name here" ng-model="newFriend" />
-  <button class="form-btn new-friend-button" ng-click="addNewFriend()">
-    +
-  </button>
-</div>
-<div class="form-container">
-  <input class="search" type="text" placeholder="Search" ng-model="searchText" />
-</div>
-<div class="table-wrapper">
-  <table class="table">
-    <tr ng-repeat="friend in friends| filter:searchText track by $index" class="table-row" valign="middle"
-      height="33px">
-      <td class="friends-list">{{$index+1}}</td>
-      <td class="friends-list">{{friend}}</td>
-      <td>
-        <button class="btn btn-danger" id="trash-btn" ng-click="remove(friend)">
-          <i class="fa-solid fa-trash-can"></i>
-        </button>
-      </td>
-    </tr>
-  </table>
-</div>
+<div class="main" id="grad">
+  <h1>You have {{numberOf}} friends</h1>
+  <div class="form-container">
+    <input class="form new-friend" type="text" placeholder="Type new friend's name here" ng-model="newFriend" />
+    <button class="form-btn new-friend-button" ng-click="addNewFriend()">
+      +
+    </button>
+  </div>
+  <div class="form-container">
+    <input class="search" type="text" placeholder="Search" ng-model="searchText" />
+  </div>
+  <div class="table-wrapper">
+    <table class="table">
+      <tr ng-repeat="friend in friends| filter:searchText track by $index" class="table-row" valign="middle"
+        height="33px">
+        <td class="friends-list">{{$index+1}}</td>
+        <td class="friends-list">{{friend}}</td>
+        <td>
+          <button class="btn btn-danger" id="trash-btn" ng-click="remove(friend)">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>

@@ -14,23 +14,6 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       templateUrl: "./views/register/register.html",
       controller: "RegisterController",
     })
-    .state("home", {
-      url: "/",
-      templateUrl: "./views/profile/showProfile.html",
-      controller: "ProfileController",
-      resolve: {
-        auththenticate: [
-          "$q",
-          function ($q) {
-            if (AuthGuard()) {
-              return $q.resolve("AUTH_SUCCESS");
-            } else {
-              return $q.reject("AUTH_REQUIRED");
-            }
-          },
-        ],
-      },
-    })
     .state("profile", {
       url: "/profile",
       templateUrl: "./views/profile/showProfile.html",

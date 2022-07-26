@@ -7,16 +7,17 @@
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
               alt="avatar"
-              ng-class="isEditing ? 'editImg' : ''"
-              class="rounded-circle img-fluid"
+              id="img"
+              class="editImg rounded-circle img-fluid"
               style="width: 150px"
-              ng-click="isEditing = !isEditing"
             />
             <input
               class="mt-2 mb-2 form-control file-input profile-input mx-auto"
               type="file"
               id="input"
+              ng-model="profile.model.file"
               accept=".jpg"
+              ng-change="profile.showModel()"
             />
             <h5 class="my-3">{{profile.fullName}}</h5>
             <div class="row justify-content-center">

@@ -33,19 +33,23 @@ angular.module("gamerApp").controller("ProfileController", [
         profile.edit = true;
       }
     };
+
     profile.showModel = function () {
       var image = document.getElementById("input").files[0];
+      var image2 = document.getElementById("img");
       var reader = new FileReader();
+
       reader.addEventListener(
         "load",
         function () {
-          console.log(this.result);
+          console.log(image2);
+          image2.src = this.result;
+          image2.classList.remove("editImg");
         },
         false
       );
-      reader.readAsDataURL(image);
 
-      profile.switchEdit();
+      reader.readAsDataURL(image);
     };
   },
 ]);

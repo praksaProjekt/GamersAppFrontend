@@ -46,7 +46,6 @@ button:focus {
 
 input[type='text'] {
     color: white;
-    font-size: 12px;
     padding-left: 10px;
 }
 
@@ -102,6 +101,16 @@ table td {
 .search {
     background-color: #ffb606;
     width: 100%;
+}
+
+.new-friend-button {
+    width: 30px;
+    color: #05c894;
+}
+
+.friends-list,
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #grad {

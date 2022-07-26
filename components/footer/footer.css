@@ -173,6 +173,7 @@ img {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border: none;
+  height: -webkit-fill-available;
 }
 
 .news-letter-form input[type="submit"] {

@@ -1,48 +1,25 @@
-<form
-  ng-submit="login(loginUser)"
-  name="loginForm"
-  class="mx-auto"
-  style="width: min(400px, 90%)"
->
+<form ng-submit="login(loginUser)" name="loginForm" class="mx-auto" style="width: min(400px, 90%)">
   <div class="form-group">
     <label for="email">Email address</label>
-    <input
-      required
-      name="email"
-      ng-class="!loginForm.email.$valid && loginForm.email.$touched ? 'is-invalid' : ''"
-      ng-model="loginUser.email"
-      type="email"
-      class="form-control"
-      id="email"
-      placeholder="Enter email"
-    />
+    <input required name="email" ng-class="!loginForm.email.$valid && loginForm.email.$touched ? 'is-invalid' : ''"
+      ng-model="loginUser.email" type="email" class="form-control" id="email" placeholder="Enter email" />
     <p class="invalid-feedback">Email required!</p>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input
-      required
-      name="password"
+    <input required name="password"
       ng-class="!loginForm.password.$valid && loginForm.password.$touched ? 'is-invalid' : ''"
-      ng-model="loginUser.password"
-      type="password"
-      class="form-control"
-      id="password"
-      placeholder="Password"
-    />
+      ng-model="loginUser.password" type="password" class="form-control" id="password" placeholder="Password" />
     <p class="invalid-feedback">Password required!</p>
   </div>
   <div class="form-check mb-3">
-    <input
-      type="checkbox"
-      ng-model="loginUser.rememberMe"
-      class="form-check-input"
-      id="rememberMe"
-    />
+    <input type="checkbox" ng-model="loginUser.rememberMe" class="form-check-input" id="rememberMe" />
     <label class="form-check-label" for="rememberMe">Remember Me</label>
   </div>
   <div class="d-flex align-items-center gap-5">
     <button type="submit" class="btn btn-outline-primary">Submit</button>
     <a ui-sref="register">Dont have an account? Register!</a>
   </div>
+  <br>
+  <a ui-sref="forgot-password">Forgot password? Reset password!</a>
 </form>

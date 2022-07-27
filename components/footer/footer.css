@@ -44,7 +44,6 @@ img {
   position: relative;
   overflow: hidden;
   z-index: 9;
-  margin-top: 20px;
 }
 
 .footer-section:before {
@@ -99,7 +98,7 @@ img {
   align-items: center;
 }
 
-.company-footer-contact-list li+li {
+.company-footer-contact-list li + li {
   margin-top: 5px;
 }
 
@@ -124,7 +123,7 @@ img {
   margin-bottom: 40px;
 }
 
-.courses-link-list li+li {
+.courses-link-list li + li {
   margin-top: 10px;
 }
 
@@ -156,7 +155,7 @@ img {
   font-weight: 400;
 }
 
-.small-post-list li+li {
+.small-post-list li + li {
   margin-top: 30px;
 }
 
@@ -203,7 +202,7 @@ img {
   color: #ffb606;
 }
 
-.terms-privacy li+li {
+.terms-privacy li + li {
   margin-left: 30px;
 }
 
@@ -221,6 +220,6 @@ img {
   right: -18px;
 }
 
-.terms-privacy li+li a:after {
+.terms-privacy li + li a:after {
   display: none;
 }

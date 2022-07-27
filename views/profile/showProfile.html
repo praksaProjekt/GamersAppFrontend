@@ -1,4 +1,4 @@
 <div ng-controller="ProfileController as profile">
-  <profile ng-if="profile.edit==false"></profile>
-  <edit-profile ng-if="profile.edit == true"></edit-profile>
+  <profile ng-cloak ng-show="profile.edit==false"></profile>
+  <edit-profile ng-cloak ng-show="profile.edit == true"></edit-profile>
 </div>

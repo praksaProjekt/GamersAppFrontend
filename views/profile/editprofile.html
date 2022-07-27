@@ -11,6 +11,24 @@
               class="editImg rounded-circle img-fluid"
               style="width: 150px"
             />
+            <div
+              id="trailer"
+              class="section d-flex justify-content-center embed-responsive embed-responsive-4by3"
+            >
+              <video class="embed-responsive-item" id="video" controls>
+                <source id="source" src="" type="video/mp4" />
+              </video>
+            </div>
+
+            <div>
+              <input
+                class="mt-2 mb-2 form-control file-input profile-input mx-auto"
+                type="file"
+                id="videoInput"
+                ng-model="profile.model.video"
+                onchange="angular.element(this).scope().updateVideo()"
+              />
+            </div>
             <div>
               <input
                 class="mt-2 mb-2 form-control file-input profile-input mx-auto"

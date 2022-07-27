@@ -1,0 +1,23 @@
+.search-users__input {
+  border: none;
+  border-bottom: solid black 1px;
+  font-size: var(--font-size-sm);
+  outline: none;
+}
+
+.search-results {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+  background-color: white;
+}
+
+.search-results__input {
+  height: 0;
+}
+
+.search-results__link {
+  font-size: var(--font-size-sm);
+}

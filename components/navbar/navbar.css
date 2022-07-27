@@ -1,0 +1,14 @@
+.item-in-nav {
+    font-size: 22px;
+}
+
+.label-text {
+    font-size: 18px;
+    font-family: fantasy;
+    letter-spacing: 1px;
+}
+
+.active {
+    color: white;
+    font-weight: bolder;
+}

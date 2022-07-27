@@ -1,25 +1,21 @@
 angular.module("gamerApp").controller("ProfileController", [
   "$scope",
   "editProfile",
-  function ($scope, editProfile) {
+  "getProfile",
+  function ($scope, editProfile, getProfile) {
     var profile = this;
 
-    profile.fullName = "";
-    profile.title = "";
-    profile.mobile = "091213212";
-    profile.adress = "";
     profile.edit = false;
-    profile.twitter = "lmao";
-    profile.epicGames = "lmao";
 
-    profile.imgModel = "";
+    profile.profileData = {};
 
     profile.model = {
+      id: "",
       fullName: "",
       title: "",
       email: "",
       mobile: "",
-      adress: "",
+      address: "",
       country: "",
       twitter: "",
       instagram: "",
@@ -35,15 +31,27 @@ angular.module("gamerApp").controller("ProfileController", [
       video.pause();
     };
 
+    profile.init = function () {
+      var promise = getProfile.get();
+      promise.then(function (response) {
+        profile.profileData = response.data;
+        console.log(response.data);
+        var profilePhoto = document.getElementById("image");
+        profilePhoto.src = profile.profileData.file;
+        profile.model.model = {};
+      });
+    };
+
     profile.switchEdit = function () {
       profile.edit = !profile.edit;
+      profile.init();
     };
 
     profile.saveChanges = function () {
       var promise = editProfile.postModel(profile.model);
 
       promise.then(function (response) {
-        console.log(response);
+        profile.init();
       });
       profile.switchEdit();
     };

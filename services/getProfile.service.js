@@ -1,10 +1,10 @@
-angular.module("gamerApp").service("editProfile", editProfile);
+angular.module("gamerApp").service("getProfile", getProfile);
 
-editProfile.$inject = ["$http"];
-function editProfile($http) {
+getProfile.$inject = ["$http"];
+function getProfile($http) {
   var service = this;
 
-  service.postModel = function (model) {
+  service.get = function () {
     var jwt = localStorage.getItem("token");
     var base64Url = jwt.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -18,15 +18,15 @@ function editProfile($http) {
         .join("")
     );
     var claimObject = JSON.parse(jsonPayload);
-    model.id = claimObject.id;
+    var response = service.getProfile(claimObject.id);
+    return response;
+  };
 
-    var sending = JSON.stringify(model);
+  service.getProfile = function (idNumber) {
     var response = $http({
-      method: "PUT",
-      url: "https://localhost:7190/api/Profile",
-      data: sending,
+      method: "GET",
+      url: "https://localhost:7190/api/Profile/" + idNumber,
     });
-    console.log(sending);
     return response;
   };
 }

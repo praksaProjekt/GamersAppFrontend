@@ -21,7 +21,7 @@
                 onchange="angular.element(this).scope().updateImage()"
               />
             </div>
-            <h5 class="my-3">{{profile.fullName}}</h5>
+            <h5 class="my-3">{{profile.profileData.fullName}}</h5>
             <div class="row justify-content-center">
               <div class="col-auto">
                 <label class="col-form-label" for="title">title:</label>
@@ -30,13 +30,13 @@
                 <input
                   id="title"
                   class="form-control profile-input"
-                  placeholder="{{profile.title}}"
+                  placeholder="{{profile.profileData.title}}"
                   type="text"
                   ng-model="profile.model.title"
                 />
               </div>
             </div>
-            <p class="text-muted mb-2">{{profile.adress}}</p>
+            <p class="text-muted mb-2">{{profile.profileData.address}}</p>
 
             <div class="d-flex justify-content-center mb-2">
               <button
@@ -67,7 +67,7 @@
                   class="form-control profile-input"
                   type="text"
                   ng-model="profile.model.twitter"
-                  placeholder="{{profile.twitter}}"
+                  placeholder="{{profile.profileData.twitter}}"
                 />
               </li>
               <li
@@ -78,7 +78,7 @@
                   class="form-control profile-input"
                   type="text"
                   ng-model="profile.model.instagram"
-                  placeholder="{{profile.instagram}}"
+                  placeholder="{{profile.profileData.instagram}}"
                 />
               </li>
               <li
@@ -89,7 +89,7 @@
                   class="form-control profile-input"
                   type="text"
                   ng-model="profile.model.facebook"
-                  placeholder="{{profile.facebook}}"
+                  placeholder="{{profile.profileData.facebook}}"
                 />
               </li>
             </ul>
@@ -110,7 +110,7 @@
                   ng-model="profile.model.epicGames"
                   class="form-control profile-input"
                   type="text"
-                  placeholder="{{profile.epicGames}}"
+                  placeholder="{{profile.profileData.epicGames}}"
                 />
               </li>
               <li
@@ -121,7 +121,7 @@
                   ng-model="profile.model.steam"
                   class="form-control profile-input"
                   type="text"
-                  placeholder="{{profile.steam}}"
+                  placeholder="{{profile.profileData.steam}}"
                 />
               </li>
             </ul>
@@ -139,7 +139,7 @@
                 <input
                   ng-model="profile.model.fullName"
                   class="form-control profile-input"
-                  placeholder="{{profile.fullName}}"
+                  placeholder="{{profile.profileData.fullName}}"
                   type="text"
                 />
               </div>
@@ -154,7 +154,7 @@
                   ng-model="profile.model.email"
                   class="form-control profile-input"
                   type="text"
-                  placeholder="{{profile.email}}"
+                  placeholder="{{profile.profileData.email}}"
                 />
               </div>
             </div>
@@ -168,7 +168,7 @@
                 <input
                   ng-model="profile.model.mobile"
                   class="form-control profile-input"
-                  placeholder="{{profile.mobile}}"
+                  placeholder="{{profile.profileData.mobile}}"
                   type="text"
                 />
               </div>
@@ -180,9 +180,9 @@
               </div>
               <div class="col-sm-9">
                 <input
-                  ng-model="profile.model.adress"
+                  ng-model="profile.model.address"
                   class="form-control profile-input"
-                  placeholder="{{profile.adress}}"
+                  placeholder="{{profile.profileData.adress}}"
                   type="text"
                 />
               </div>

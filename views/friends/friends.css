@@ -44,7 +44,8 @@ button:focus {
   outline: none;
 }
 
-input[type="text"] {
+.new-friend,
+.search {
   color: white;
   padding-left: 10px;
 }

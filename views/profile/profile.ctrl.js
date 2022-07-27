@@ -23,6 +23,12 @@ angular.module("gamerApp").controller("ProfileController", [
       epicGames: "",
       steam: "",
       file: "",
+      video: "",
+    };
+
+    $scope.$onInit = () => {
+      var video = document.getElementById("video");
+      video.pause();
     };
 
     profile.init = function () {
@@ -40,6 +46,7 @@ angular.module("gamerApp").controller("ProfileController", [
       profile.edit = !profile.edit;
       profile.init();
     };
+
     profile.saveChanges = function () {
       var promise = editProfile.postModel(profile.model);
 
@@ -52,6 +59,7 @@ angular.module("gamerApp").controller("ProfileController", [
     $scope.updateImage = function () {
       var input = document.getElementById("input").files[0];
       var image = document.getElementById("img");
+
       var reader = new FileReader();
       reader.addEventListener(
         "load",
@@ -62,7 +70,28 @@ angular.module("gamerApp").controller("ProfileController", [
         },
         false
       );
+
       reader.readAsDataURL(input);
+    };
+
+    $scope.updateVideo = function () {
+      var videoInput = document.getElementById("videoInput").files[0];
+
+      var source = document.getElementById("source");
+
+      var reader = new FileReader();
+      reader.addEventListener(
+        "load",
+        function () {
+          profile.model.video = this.result;
+          source.src = this.result;
+          video.load();
+          video.play();
+        },
+        false
+      );
+
+      reader.readAsDataURL(videoInput);
     };
   },
 ]);

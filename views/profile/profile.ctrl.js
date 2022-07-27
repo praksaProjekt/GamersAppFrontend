@@ -1,6 +1,7 @@
 angular.module("gamerApp").controller("ProfileController", [
   "$scope",
-  function ($scope) {
+  "editProfile",
+  function ($scope, editProfile) {
     var profile = this;
 
     profile.fullName = "";
@@ -10,6 +11,8 @@ angular.module("gamerApp").controller("ProfileController", [
     profile.edit = false;
     profile.twitter = "lmao";
     profile.epicGames = "lmao";
+
+    profile.imgModel = "";
 
     profile.model = {
       fullName: "",
@@ -30,9 +33,14 @@ angular.module("gamerApp").controller("ProfileController", [
       profile.edit = !profile.edit;
     };
     profile.saveChanges = function () {
-      console.log(profile.model);
+      var promise = editProfile.postModel(profile.model);
+
+      promise.then(function (response) {
+        console.log(response);
+      });
       profile.switchEdit();
     };
+
     $scope.updateImage = function () {
       var input = document.getElementById("input").files[0];
       var image = document.getElementById("img");
@@ -42,7 +50,6 @@ angular.module("gamerApp").controller("ProfileController", [
         function () {
           image.src = this.result;
           profile.model.file = this.result;
-          console.log(profile.model.file);
           image.classList.remove("editImg");
         },
         false

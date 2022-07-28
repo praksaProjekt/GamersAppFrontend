@@ -8,7 +8,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li ng-show="!isLoggedIn2()" class="nav-item">
         <a class="nav-link item-in-nav" ui-sref-active="active" ui-sref="login">Login</a>
       </li>
       <li ng-if="isLoggedIn2()" class="nav-item">

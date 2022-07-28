@@ -1,4 +1,4 @@
-angular.module("app.services", []).factory("auth", [
+angular.module("app.services", ['angular-jwt']).factory("auth", [
   "$http",
   "$state",
   function ($http, $state) {
@@ -38,27 +38,24 @@ angular.module("app.services", []).factory("auth", [
       logout: function () {
         localStorage.removeItem("token");
 
-        $http
-          .delete("URL_PLACEHOLDER")
-          .then((data) => {
-            console.log(data);
-            console.log("hello");
-          })
-          .error((error) => {
-            console.error(error);
-          });
+        // $http
+        //   .delete("URL_PLACEHOLDER")
+        //   .then((data) => {
+        //     console.log(data);
+        //     console.log("hello");
+        //   })
+        //   .error((error) => {
+        //     console.error(error);
+        //   });
       },
 
       isLoggedIn: function () {
-        $http
-          .get("URL_PLACEHOLDER")
-          .then((data) => {
-            console.log(data);
-            console.log("hello");
-          })
-          .error((error) => {
-            console.error(error);
-          });
+        var myToken = localStorage.getItem("token");
+        if (myToken) {
+          return true;
+        } else {
+          return false;
+        }
       },
     };
   },

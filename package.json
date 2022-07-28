@@ -2,6 +2,7 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.30",
     "angular": "^1.8.2",
+    "angular-jwt": "^0.1.11",
     "bootstrap-icons": "^1.9.1"
   }
 }

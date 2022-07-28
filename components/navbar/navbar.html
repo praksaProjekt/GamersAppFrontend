@@ -29,7 +29,7 @@
         <a ng-click="logout2()" class="nav-link item-in-nav" ui-sref="games">Logout</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form ng-if="isLoggedIn2()" class="form-inline my-2 my-lg-0">
       <label class="text-light mr-3 label-text" for="search">Search Users:</label>
 
       <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />

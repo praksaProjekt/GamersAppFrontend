@@ -11,7 +11,6 @@ angular.module("app.services", []).factory("auth", [
           headers: { "Content-Type": "application/json" },
         })
           .then((data) => {
-            console.log(data);
             localStorage.setItem("token", data.data.token);
             $state.go("profile");
           })
@@ -38,8 +37,12 @@ angular.module("app.services", []).factory("auth", [
       logout: function () {
         localStorage.removeItem("token");
 
-        $http
-          .delete("URL_PLACEHOLDER")
+        $http({
+          method: "DELETE",
+          url: "https://localhost:7190/api/User/register",
+          data: form,
+          headers: { "Content-Type": "application/json" },
+        })
           .then((data) => {
             console.log(data);
             console.log("hello");

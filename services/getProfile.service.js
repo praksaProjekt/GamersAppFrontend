@@ -18,15 +18,17 @@ function getProfile($http) {
         .join("")
     );
     var claimObject = JSON.parse(jsonPayload);
-    var response = service.getProfile(claimObject.id);
-    return response;
+    console.log(claimObject.id);
+    var promise = service.getProfile(claimObject.id);
+    return promise;
   };
 
   service.getProfile = function (idNumber) {
-    var response = $http({
+    var promise = $http({
       method: "GET",
       url: "https://localhost:7190/api/Profile/" + idNumber,
     });
-    return response;
+
+    return promise;
   };
 }

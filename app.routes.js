@@ -14,6 +14,11 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       templateUrl: "./views/register/register.html",
       controller: "RegisterController",
     })
+    .state("forgot-password", {
+      url: "/forgot-password",
+      templateUrl: "./views/forgot-password/forgotPassword.html",
+      controller: "RegisterController",
+    })
     .state("profile", {
       url: "/profile",
       templateUrl: "./views/profile/showProfile.html",

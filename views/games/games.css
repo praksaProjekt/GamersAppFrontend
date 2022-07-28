@@ -27,7 +27,88 @@
   border-color: red;
 }
 
+.remove:hover {
+  background-color: rgb(130, 6, 6);
+  border-color: red;
+}
+
 .add,
 .remove {
   border-radius: 20px;
+}
+
+.game-link {
+  font-size: 30px;
+  color: black;
+  font-weight: bolder;
+}
+
+.title {
+  color: black;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  font-size: 3em;
+}
+
+
+.tracking-in-expand,
+.game-link {
+  -webkit-animation: tracking-in-expand 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+  animation: tracking-in-expand 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.5s both;
+}
+
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  60% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  70% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(-22vh);
+    transform: translateY(-22vh);
+  }
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  60% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  70% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(-22vh);
+    transform: translateY(-22vh);
+  }
 }

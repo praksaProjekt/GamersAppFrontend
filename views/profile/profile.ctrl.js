@@ -1,22 +1,21 @@
 angular.module("gamerApp").controller("ProfileController", [
   "$scope",
-  function ($scope) {
+  "editProfile",
+  "getProfile",
+  function ($scope, editProfile, getProfile) {
     var profile = this;
 
-    profile.fullName = "";
-    profile.title = "";
-    profile.mobile = "091213212";
-    profile.adress = "";
     profile.edit = false;
-    profile.twitter = "lmao";
-    profile.epicGames = "lmao";
+
+    profile.profileData = {};
 
     profile.model = {
+      id: "",
       fullName: "",
       title: "",
       email: "",
       mobile: "",
-      adress: "",
+      address: "",
       country: "",
       twitter: "",
       instagram: "",
@@ -24,7 +23,13 @@ angular.module("gamerApp").controller("ProfileController", [
       epicGames: "",
       steam: "",
       file: "",
-      video: "",
+    };
+
+    profile.fileModel = {
+      id: null,
+      fileType: null,
+      fileName: "",
+      file: "",
     };
 
     $scope.$onInit = () => {
@@ -32,30 +37,48 @@ angular.module("gamerApp").controller("ProfileController", [
       video.pause();
     };
 
+    profile.init = function () {
+      var promise = getProfile.get();
+
+      promise.then(function (response) {
+        profile.profileData = response.data;
+        var profilePhoto = document.getElementById("image");
+        profilePhoto.src = profile.profileData.file;
+      });
+      profile.model = {};
+    };
+
     profile.switchEdit = function () {
       profile.edit = !profile.edit;
+      profile.init();
     };
 
     profile.saveChanges = function () {
-      console.log(profile.model);
+      var promise = editProfile.postModel(profile.model);
+      promise.then(function () {});
+      profile.init();
       profile.switchEdit();
     };
 
     $scope.updateImage = function () {
       var input = document.getElementById("input").files[0];
+      profile.fileModel.fileName =
+        document.getElementById("input").files[0].name;
+      profile.fileModel.fileType =
+        document.getElementById("input").files[0].type;
+      console.log(profile.fileModel.fileName);
       var image = document.getElementById("img");
-
       var reader = new FileReader();
       reader.addEventListener(
         "load",
         function () {
           image.src = this.result;
-          profile.model.file = this.result;
+          profile.fileModel.file = this.result;
+          console.log(this.result.toString());
           image.classList.remove("editImg");
         },
         false
       );
-
       reader.readAsDataURL(input);
     };
 

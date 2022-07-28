@@ -11,7 +11,7 @@
       <li ng-show="!isLoggedIn2()" class="nav-item">
         <a class="nav-link item-in-nav" ui-sref-active="active" ui-sref="login">Login</a>
       </li>
-      <li ng-if="isLoggedIn2()" class="nav-item">
+      <li ng-if="!isLoggedIn2()" class="nav-item">
         <a class="nav-link item-in-nav" ui-sref-active="active" ui-sref="register">Register
         </a>
       </li>

@@ -47,7 +47,8 @@ angular.module("gamerApp").controller("ProfileController", [
         profile.profileData = response.data;
         var profilePhoto = document.getElementById("image");
         profilePhoto.src =
-          profile.pictureUrl + profile.profileData.profilePictureURl;
+          profile.pictureUrl + profile.profileData.profilePictureURI;
+        console.log(profilePhoto.src);
       });
       profile.model = {};
     };

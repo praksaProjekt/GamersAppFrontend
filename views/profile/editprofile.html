@@ -5,9 +5,9 @@
         <div class="card mb-4">
           <div class="card-body text-center">
             <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+              src=""
               alt="avatar"
-              id="img"
+              id="image"
               class="editImg rounded-circle img-fluid"
               style="width: 150px"
             />
@@ -39,7 +39,7 @@
                 onchange="angular.element(this).scope().updateImage()"
               />
             </div>
-            <h5 class="my-3">{{profile.profileData.fullName}}</h5>
+            <h5 class="my-3">{{profile.model.fullName}}</h5>
             <div class="row justify-content-center">
               <div class="col-auto">
                 <label class="col-form-label" for="title">title:</label>
@@ -48,19 +48,19 @@
                 <input
                   id="title"
                   class="form-control profile-input"
-                  placeholder="{{profile.profileData.title}}"
+                  placeholder="{{profile.model.title}}"
                   type="text"
                   ng-model="profile.model.title"
                 />
               </div>
             </div>
-            <p class="text-muted mb-2">{{profile.profileData.address}}</p>
+            <p class="text-muted mb-2">{{profile.model.country}}</p>
 
             <div class="d-flex justify-content-center mb-2">
               <button
                 type=""
                 ng-click="profile.switchEdit();"
-                class="button glow-button mr-2"
+                class="button cancel-button mr-2"
               >
                 Cancel
               </button>
@@ -85,7 +85,7 @@
                   class="form-control profile-input"
                   type="text"
                   ng-model="profile.model.twitter"
-                  placeholder="{{profile.profileData.twitter}}"
+                  placeholder="{{profile.model.twitter}}"
                 />
               </li>
               <li
@@ -96,7 +96,7 @@
                   class="form-control profile-input"
                   type="text"
                   ng-model="profile.model.instagram"
-                  placeholder="{{profile.profileData.instagram}}"
+                  placeholder="{{profile.model.instagram}}"
                 />
               </li>
               <li
@@ -110,7 +110,7 @@
                   class="form-control profile-input"
                   type="text"
                   ng-model="profile.model.facebook"
-                  placeholder="{{profile.profileData.facebook}}"
+                  placeholder="{{profile.model.facebook}}"
                 />
               </li>
             </ul>
@@ -131,7 +131,7 @@
                   ng-model="profile.model.epicGames"
                   class="form-control profile-input"
                   type="text"
-                  placeholder="{{profile.profileData.epicGames}}"
+                  placeholder="{{profile.model.epicGames}}"
                 />
               </li>
               <li
@@ -142,7 +142,7 @@
                   ng-model="profile.model.steam"
                   class="form-control profile-input"
                   type="text"
-                  placeholder="{{profile.profileData.steam}}"
+                  placeholder="{{profile.model.steam}}"
                 />
               </li>
             </ul>
@@ -160,7 +160,7 @@
                 <input
                   ng-model="profile.model.fullName"
                   class="form-control profile-input"
-                  placeholder="{{profile.profileData.fullName}}"
+                  placeholder="{{profile.model.fullName}}"
                   type="text"
                 />
               </div>
@@ -175,7 +175,7 @@
                   ng-model="profile.model.email"
                   class="form-control profile-input"
                   type="text"
-                  placeholder="{{profile.profileData.email}}"
+                  placeholder="{{profile.model.email}}"
                 />
               </div>
             </div>
@@ -189,7 +189,7 @@
                 <input
                   ng-model="profile.model.mobile"
                   class="form-control profile-input"
-                  placeholder="{{profile.profileData.mobile}}"
+                  placeholder="{{profile.model.mobile}}"
                   type="text"
                 />
               </div>
@@ -203,7 +203,7 @@
                 <input
                   ng-model="profile.model.address"
                   class="form-control profile-input"
-                  placeholder="{{profile.profileData.adress}}"
+                  placeholder="{{profile.model.adress}}"
                   type="text"
                 />
               </div>

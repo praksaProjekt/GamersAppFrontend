@@ -15,7 +15,7 @@ angular.module("app.services", ["angular-jwt"]).factory("auth", [
             localStorage.setItem("token", data.data);
             $state.go("profile");
           })
-          .error((error) => {
+          .catch((error) => {
             console.error(error);
           });
       },
@@ -30,23 +30,13 @@ angular.module("app.services", ["angular-jwt"]).factory("auth", [
           .then(() => {
             $state.go("login");
           })
-          .error((error) => {
+          .catch((error) => {
             console.error(error);
           });
       },
 
       logout: function () {
         localStorage.removeItem("token");
-
-        // $http
-        //   .delete("URL_PLACEHOLDER")
-        //   .then((data) => {
-        //     console.log(data);
-        //     console.log("hello");
-        //   })
-        //   .error((error) => {
-        //     console.error(error);
-        //   });
       },
 
       isLoggedIn: function () {

@@ -10,7 +10,8 @@ angular.module("gamerApp").controller("ProfileController", [
     profile.profileData = {};
 
     profile.model = {
-      id: "",
+      id: 0,
+      userId: 0,
       fullName: "",
       title: "",
       email: "",
@@ -22,14 +23,15 @@ angular.module("gamerApp").controller("ProfileController", [
       facebook: "",
       epicGames: "",
       steam: "",
-      file: "",
+      profilePictureURI: "",
+      video: "",
     };
 
     profile.fileModel = {
-      id: null,
+      userId: null,
       fileType: null,
       fileName: "",
-      file: "",
+      fileBase64: "",
     };
 
     $scope.$onInit = () => {
@@ -43,7 +45,7 @@ angular.module("gamerApp").controller("ProfileController", [
       promise.then(function (response) {
         profile.profileData = response.data;
         var profilePhoto = document.getElementById("image");
-        profilePhoto.src = profile.profileData.file;
+        profilePhoto.src = profile.profileData.profilePictureURI;
       });
       profile.model = {};
     };
@@ -54,18 +56,17 @@ angular.module("gamerApp").controller("ProfileController", [
     };
 
     profile.saveChanges = function () {
-      var promise = editProfile.postModel(profile.model);
-      promise.then(function () {});
-      profile.init();
-      profile.switchEdit();
+      profileUrl = "https://localhost:7190/api/Profile";
+      imageApi = "https://localhost:7190/api/Files/uploadfile";
+      var promise = editProfile.postModel(profile.model, profileUrl);
+      var promise = editProfile.postModel(profile.fileModel, imageApi);
     };
 
     $scope.updateImage = function () {
       var input = document.getElementById("input").files[0];
       profile.fileModel.fileName =
         document.getElementById("input").files[0].name;
-      profile.fileModel.fileType =
-        document.getElementById("input").files[0].type;
+      profile.fileModel.fileType = 0;
       console.log(profile.fileModel.fileName);
       var image = document.getElementById("img");
       var reader = new FileReader();
@@ -73,7 +74,7 @@ angular.module("gamerApp").controller("ProfileController", [
         "load",
         function () {
           image.src = this.result;
-          profile.fileModel.file = this.result;
+          profile.fileModel.fileBase64 = this.result;
           console.log(this.result.toString());
           image.classList.remove("editImg");
         },

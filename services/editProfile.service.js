@@ -4,7 +4,8 @@ editProfile.$inject = ["$http"];
 function editProfile($http) {
   var service = this;
 
-  service.postModel = function (model) {
+  service.postModel = function (model, sendUrl) {
+    var methodType;
     var jwt = localStorage.getItem("token");
     var base64Url = jwt.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -18,12 +19,21 @@ function editProfile($http) {
         .join("")
     );
     var claimObject = JSON.parse(jsonPayload);
-    model.id = claimObject.id;
+    console.log(claimObject);
+
+    if (sendUrl === "https://localhost:7190/api/Profile") {
+      model.id = claimObject.id;
+      methodType = "PUT";
+    } else {
+      model.userId = claimObject.id;
+      methodType = "POST";
+    }
 
     var sending = JSON.stringify(model);
+    console.log(sending);
     var response = $http({
-      method: "PUT",
-      url: "https://localhost:7190/api/Profile",
+      method: methodType,
+      url: sendUrl,
       data: sending,
     });
     console.log(sending);

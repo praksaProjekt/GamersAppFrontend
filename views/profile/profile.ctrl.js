@@ -5,6 +5,7 @@ angular.module("gamerApp").controller("ProfileController", [
   function ($scope, editProfile, getProfile) {
     var profile = this;
 
+    profile.pictureUrl = "http://127.0.0.1:8887/content/";
     profile.edit = false;
 
     profile.profileData = {};
@@ -45,7 +46,8 @@ angular.module("gamerApp").controller("ProfileController", [
       promise.then(function (response) {
         profile.profileData = response.data;
         var profilePhoto = document.getElementById("image");
-        profilePhoto.src = profile.profileData.profilePictureURI;
+        profilePhoto.src =
+          profile.pictureUrl + profile.profileData.profilePictureURl;
       });
       profile.model = {};
     };
@@ -59,7 +61,13 @@ angular.module("gamerApp").controller("ProfileController", [
       profileUrl = "https://localhost:7190/api/Profile";
       imageApi = "https://localhost:7190/api/Files/uploadfile";
       var promise = editProfile.postModel(profile.model, profileUrl);
-      var promise = editProfile.postModel(profile.fileModel, imageApi);
+      promise.then(function () {
+        var promise = editProfile.postModel(profile.fileModel, imageApi);
+        promise.then(function () {
+          profile.init();
+          profile.switchEdit();
+        });
+      });
     };
 
     $scope.updateImage = function () {
@@ -75,7 +83,6 @@ angular.module("gamerApp").controller("ProfileController", [
         function () {
           image.src = this.result;
           profile.fileModel.fileBase64 = this.result;
-          console.log(this.result.toString());
           image.classList.remove("editImg");
         },
         false

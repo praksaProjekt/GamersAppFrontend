@@ -26,8 +26,10 @@ angular.module("gamerApp").controller("ProfileController", [
       var promise = getProfile.get();
       promise.then(function (response) {
         profile.model = response.data;
-        console.log(response.data);
-        var profilePhoto = document.getElementById("image");
+        console.log(profile.model);
+        var profilePhoto = document.getElementById("img");
+        var editPhoto = document.getElementById("avatarImg");
+        editPhoto.src = profile.pictureUrl + profile.model.profilePictureURI;
         profilePhoto.src = profile.pictureUrl + profile.model.profilePictureURI;
         console.log(profilePhoto.src);
       });
@@ -36,7 +38,6 @@ angular.module("gamerApp").controller("ProfileController", [
 
     profile.switchEdit = function () {
       profile.edit = !profile.edit;
-      profile.init();
     };
 
     profile.saveChanges = function () {
@@ -46,8 +47,8 @@ angular.module("gamerApp").controller("ProfileController", [
       promise.then(function () {
         var promise = editProfile.postModel(profile.fileModel, imageApi);
         promise.then(function () {
-          profile.init();
           profile.switchEdit();
+          profile.init();
         });
       });
     };
@@ -57,8 +58,7 @@ angular.module("gamerApp").controller("ProfileController", [
       profile.fileModel.fileName =
         document.getElementById("input").files[0].name;
       profile.fileModel.fileType = 0;
-      console.log(profile.fileModel.fileName);
-      var image = document.getElementById("img");
+      var image = document.getElementById("avatarImg");
       var reader = new FileReader();
       reader.addEventListener(
         "load",
@@ -66,6 +66,7 @@ angular.module("gamerApp").controller("ProfileController", [
           image.src = this.result;
           profile.fileModel.fileBase64 = this.result;
           image.classList.remove("editImg");
+          console.log(image.src);
         },
         false
       );

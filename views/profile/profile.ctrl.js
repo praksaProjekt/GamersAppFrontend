@@ -8,25 +8,7 @@ angular.module("gamerApp").controller("ProfileController", [
     profile.pictureUrl = "http://127.0.0.1:8887/content/";
     profile.edit = false;
 
-    profile.profileData = {};
-
-    profile.model = {
-      id: 0,
-      userId: 0,
-      fullName: "",
-      title: "",
-      email: "",
-      mobile: "",
-      address: "",
-      country: "",
-      twitter: "",
-      instagram: "",
-      facebook: "",
-      epicGames: "",
-      steam: "",
-      profilePictureURI: "",
-      video: "",
-    };
+    profile.model = {};
 
     profile.fileModel = {
       userId: null,
@@ -42,12 +24,11 @@ angular.module("gamerApp").controller("ProfileController", [
 
     profile.init = function () {
       var promise = getProfile.get();
-
       promise.then(function (response) {
-        profile.profileData = response.data;
+        profile.model = response.data;
+        console.log(response.data);
         var profilePhoto = document.getElementById("image");
-        profilePhoto.src =
-          profile.pictureUrl + profile.profileData.profilePictureURI;
+        profilePhoto.src = profile.pictureUrl + profile.model.profilePictureURI;
         console.log(profilePhoto.src);
       });
       profile.model = {};

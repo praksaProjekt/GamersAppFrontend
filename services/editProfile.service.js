@@ -6,6 +6,20 @@ function editProfile($http) {
 
   service.postModel = function (model, sendUrl) {
     var methodType;
+
+    var id = service.getClaimObjectId();
+    var methodType = service.setMethod(sendUrl);
+    model = service.setModel(sendUrl, id, model);
+    var sending = JSON.stringify(model);
+    var response = $http({
+      method: methodType,
+      url: sendUrl,
+      data: sending,
+    });
+    return response;
+  };
+
+  service.getClaimObjectId = function () {
     var jwt = localStorage.getItem("token");
     var base64Url = jwt.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -19,24 +33,23 @@ function editProfile($http) {
         .join("")
     );
     var claimObject = JSON.parse(jsonPayload);
-    console.log(claimObject);
-
+    return claimObject.id;
+  };
+  service.setMethod = function (sendUrl) {
     if (sendUrl === "https://localhost:7190/api/Profile") {
-      model.id = claimObject.id;
       methodType = "PUT";
     } else {
-      model.userId = claimObject.id;
       methodType = "POST";
     }
+    return methodType;
+  };
 
-    var sending = JSON.stringify(model);
-    console.log(sending);
-    var response = $http({
-      method: methodType,
-      url: sendUrl,
-      data: sending,
-    });
-    console.log(sending);
-    return response;
+  service.setModel = function (url, id, model) {
+    if (url === "https://localhost:7190/api/Profile") {
+      model.id = id;
+    } else {
+      model.userId = id;
+    }
+    return model;
   };
 }

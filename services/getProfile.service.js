@@ -6,7 +6,6 @@ function getProfile($http, editProfile) {
 
   service.get = function () {
     var id = editProfile.getClaimObjectId();
-    console.log(id);
     var promise = service.getProfile(id);
     return promise;
   };

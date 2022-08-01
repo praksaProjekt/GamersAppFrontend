@@ -11,7 +11,8 @@ angular.module("app.services", ["angular-jwt"]).factory("auth", [
           headers: { "Content-Type": "application/json" },
         })
           .then((data) => {
-            localStorage.setItem("token", data.data.token);
+            console.log(data);
+            localStorage.setItem("token", data.data);
             $state.go("profile");
           })
           .error((error) => {
@@ -22,11 +23,12 @@ angular.module("app.services", ["angular-jwt"]).factory("auth", [
       register: function (form) {
         $http({
           method: "POST",
-          url: "https://localhost:7190/api/User/register",
+          url: "https://localhost:7190/api/auth/register",
           data: form,
           headers: { "Content-Type": "application/json" },
         })
           .then(() => {
+            console.log("hello");
             $state.go("login");
           })
           .error((error) => {

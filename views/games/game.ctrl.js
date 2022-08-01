@@ -13,9 +13,11 @@ angular.module("gamerApp").controller("GamesController", [
       gamerTag: "",
     };
 
-    games.addGame = function () {
+    games.addGame = function (gamesId) {
+      games.model.gameId = gamesId;
       games.model.userId = editProfile.getClaimObjectId();
       console.log(games.model.userId);
+      console.log(games.model.gameId);
     };
   },
 ]);

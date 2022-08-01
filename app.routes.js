@@ -39,6 +39,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state("games", {
       url: "/games",
       templateUrl: "./views/games/games.html",
+      controller: "GamesController",
       resolve: {
         auththenticate: [
           "$q",

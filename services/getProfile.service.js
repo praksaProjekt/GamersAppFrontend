@@ -1,25 +1,12 @@
 angular.module("gamerApp").service("getProfile", getProfile);
 
-getProfile.$inject = ["$http"];
-function getProfile($http) {
+getProfile.$inject = ["$http", "editProfile"];
+function getProfile($http, editProfile) {
   var service = this;
 
   service.get = function () {
-    var jwt = localStorage.getItem("token");
-    var base64Url = jwt.split(".")[1];
-    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    var jsonPayload = decodeURIComponent(
-      window
-        .atob(base64)
-        .split("")
-        .map(function (c) {
-          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join("")
-    );
-    var claimObject = JSON.parse(jsonPayload);
-    console.log(claimObject.id);
-    var promise = service.getProfile(claimObject.id);
+    var id = editProfile.getClaimObjectId();
+    var promise = service.getProfile(id);
     return promise;
   };
 

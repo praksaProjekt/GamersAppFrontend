@@ -5,31 +5,16 @@ angular.module("gamerApp").controller("ProfileController", [
   function ($scope, editProfile, getProfile) {
     var profile = this;
 
+    profile.pictureUrl = "http://127.0.0.1:8887/content/";
     profile.edit = false;
 
-    profile.profileData = {};
-
-    profile.model = {
-      id: "",
-      fullName: "",
-      title: "",
-      email: "",
-      mobile: "",
-      address: "",
-      country: "",
-      twitter: "",
-      instagram: "",
-      facebook: "",
-      epicGames: "",
-      steam: "",
-      file: "",
-    };
+    profile.model = {};
 
     profile.fileModel = {
-      id: null,
+      userId: null,
       fileType: null,
       fileName: "",
-      file: "",
+      fileBase64: "",
     };
 
     $scope.$onInit = () => {
@@ -39,43 +24,49 @@ angular.module("gamerApp").controller("ProfileController", [
 
     profile.init = function () {
       var promise = getProfile.get();
-
       promise.then(function (response) {
-        profile.profileData = response.data;
-        var profilePhoto = document.getElementById("image");
-        profilePhoto.src = profile.profileData.file;
+        profile.model = response.data;
+        console.log(profile.model);
+        var profilePhoto = document.getElementById("img");
+        var editPhoto = document.getElementById("avatarImg");
+        editPhoto.src = profile.pictureUrl + profile.model.profilePictureURI;
+        profilePhoto.src = profile.pictureUrl + profile.model.profilePictureURI;
+        console.log(profilePhoto.src);
       });
       profile.model = {};
     };
 
     profile.switchEdit = function () {
       profile.edit = !profile.edit;
-      profile.init();
     };
 
     profile.saveChanges = function () {
-      var promise = editProfile.postModel(profile.model);
-      promise.then(function () {});
-      profile.init();
-      profile.switchEdit();
+      profileUrl = "https://localhost:7190/api/Profile";
+      imageApi = "https://localhost:7190/api/Files/uploadfile";
+      var promise = editProfile.postModel(profile.model, profileUrl);
+      promise.then(function () {
+        var promise = editProfile.postModel(profile.fileModel, imageApi);
+        promise.then(function () {
+          profile.switchEdit();
+          profile.init();
+        });
+      });
     };
 
     $scope.updateImage = function () {
       var input = document.getElementById("input").files[0];
       profile.fileModel.fileName =
         document.getElementById("input").files[0].name;
-      profile.fileModel.fileType =
-        document.getElementById("input").files[0].type;
-      console.log(profile.fileModel.fileName);
-      var image = document.getElementById("img");
+      profile.fileModel.fileType = 0;
+      var image = document.getElementById("avatarImg");
       var reader = new FileReader();
       reader.addEventListener(
         "load",
         function () {
           image.src = this.result;
-          profile.fileModel.file = this.result;
-          console.log(this.result.toString());
+          profile.fileModel.fileBase64 = this.result;
           image.classList.remove("editImg");
+          console.log(image.src);
         },
         false
       );

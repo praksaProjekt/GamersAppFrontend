@@ -15,6 +15,7 @@ angular.module("gamerApp").controller("GamesController", [
 
     games.addGame = function () {
       games.model.userId = editProfile.getClaimObjectId();
+      console.log(games.model.userId);
     };
   },
 ]);
